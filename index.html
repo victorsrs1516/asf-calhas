@@ -1,0 +1,2745 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A.S.F Calhas – Instalação, Manutenção e Limpeza</title>
+  <meta name="description" content="Especialistas em calhas em São José dos Pinhais e região. Instalação, manutenção e limpeza com qualidade e garantia. Solicite seu orçamento pelo WhatsApp!" />
+  <meta name="keywords" content="calhas, rufos, condutores, colarinhos, chaminés, instalação de calhas, manutenção de calhas, limpeza de calhas, calhas em São José dos Pinhais, calhas em Curitiba, A.S.F Calhas" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="img/calhas.logo2.png">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      /* Dark palette */
+      --bg:          #080c10;
+      --bg-2:        #0d1219;
+      --bg-3:        #111720;
+      --bg-card:     #0f1520;
+      --border:      rgba(255,255,255,0.07);
+      --border-2:    rgba(255,255,255,0.12);
+
+      /* Brand */
+      --amber:       #f59e0b;
+      --amber-light: #fbbf24;
+      --amber-dim:   rgba(245,158,11,0.12);
+      --amber-glow:  rgba(245,158,11,0.25);
+      --steel:       #94a3b8;
+      --steel-dim:   rgba(148,163,184,0.08);
+
+      /* Text */
+      --text-1:      #f1f5f9;
+      --text-2:      #94a3b8;
+      --text-3:      #475569;
+
+      /* WA */
+      --wa:          #22c55e;
+      --wa-glow:     rgba(34,197,94,0.28);
+
+      --radius:      10px;
+      --radius-lg:   18px;
+      --radius-xl:   28px;
+      --font-head:   'Bebas Neue', sans-serif;
+      --font-body:   'Instrument Sans', sans-serif;
+      --font-mono:   'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-1);
+      overflow-x: hidden;
+    }
+
+    /* ─── NOISE TEXTURE OVERLAY ─────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.6;
+    }
+
+    /* ─── SCROLLBAR ─────────────────────── */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--amber); border-radius: 2px; }
+
+    /* ─── NAV ────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 500;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      background: rgba(8,12,16,0.7);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(8,12,16,0.92);
+      border-bottom-color: var(--border-2);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      width: 158px;
+      height: 54px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-2);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text-1); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber);
+      color: #000;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 10px 20px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: var(--amber-light);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px var(--amber-glow);
+    }
+
+    .nav-cta svg { width: 15px; height: 15px; }
+
+    /* ─── HAMBURGER ────────────────────── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text-1);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 72px; left: 0; right: 0;
+      background: rgba(8,12,16,0.98);
+      border-bottom: 1px solid var(--border-2);
+      backdrop-filter: blur(24px);
+      padding: 24px 5%;
+      z-index: 499;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-2);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+
+    .mobile-menu a:hover { color: var(--text-1); }
+
+    .mobile-menu .nav-cta {
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    /* ─── HERO ───────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Animated background grid */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(245,158,11,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridSlide 30s linear infinite;
+    }
+
+    @keyframes gridSlide {
+      from { background-position: 0 0; }
+      to   { background-position: 60px 60px; }
+    }
+
+    /* Radial glows */
+    .hero-glow-1 {
+      position: absolute;
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(245,158,11,0.08) 0%, transparent 70%);
+      top: -200px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(34,197,94,0.05) 0%, transparent 70%);
+      bottom: -100px; left: 10%;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 80px;
+      align-items: center;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--amber-dim);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 4px;
+      padding: 5px 12px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp 0.7s ease both;
+    }
+
+    .hero-label::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--amber);
+      border-radius: 50%;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: var(--font-head);
+      font-size: clamp(4rem, 8vw, 7.5rem);
+      line-height: 0.92;
+      letter-spacing: 0.02em;
+      color: var(--text-1);
+      margin-bottom: 30px;
+      animation: fadeUp 0.7s 0.1s ease both;
+    }
+
+    .hero h1 .line-accent {
+      display: block;
+      color: var(--amber);
+      -webkit-text-stroke: 0px;
+    }
+
+    .hero h1 .line-outline {
+      display: block;
+      -webkit-text-stroke: 1.5px rgba(241,245,249,0.3);
+      color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      max-width: 480px;
+      margin-bottom: 40px;
+      animation: fadeUp 0.7s 0.2s ease both;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      animation: fadeUp 0.7s 0.3s ease both;
+    }
+
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--wa);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 15px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 20px var(--wa-glow);
+    }
+
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px var(--wa-glow);
+      background: #16a34a;
+    }
+
+    .btn-wa svg { width: 20px; height: 20px; flex-shrink: 0; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--text-1);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 15px 26px;
+      border-radius: 8px;
+      border: 1px solid var(--border-2);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 52px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+      animation: fadeUp 0.7s 0.4s ease both;
+    }
+
+    .hero-stat-num {
+      font-family: var(--font-head);
+      font-size: 2.8rem;
+      line-height: 1;
+      color: var(--text-1);
+      letter-spacing: 0.02em;
+    }
+
+    .hero-stat-num em { color: var(--amber); font-style: normal; }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--text-3);
+      margin-top: 4px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Hero card panel */
+    .hero-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      animation: fadeLeft 0.8s 0.3s ease both;
+    }
+
+    .hero-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    }
+
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(30px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .panel-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--amber);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-title::before {
+      content: '//';
+      color: var(--text-3);
+    }
+
+    .panel-services {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin-bottom: 28px;
+    }
+
+    .panel-service {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: 8px;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+      cursor: default;
+    }
+
+    .panel-service:hover {
+      background: rgba(245,158,11,0.06);
+      border-color: rgba(245,158,11,0.15);
+    }
+
+    .panel-service-icon {
+      width: 38px; height: 38px;
+      background: var(--amber-dim);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .panel-service-name {
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text-1);
+    }
+
+    .panel-service-desc {
+      font-size: 0.75rem;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    .panel-service-arrow {
+      margin-left: auto;
+      color: var(--text-3);
+      font-size: 1.1rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .panel-service:hover .panel-service-arrow {
+      color: var(--amber);
+      transform: translateX(3px);
+    }
+
+    .panel-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--wa);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 15px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px var(--wa-glow);
+    }
+
+    .panel-cta:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px var(--wa-glow);
+    }
+
+    .panel-cta svg { width: 18px; height: 18px; }
+
+    /* ─── TRUST STRIP ─────────────────── */
+    .trust-strip {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 56px;
+      flex-wrap: wrap;
+    }
+
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .trust-icon {
+      width: 32px; height: 32px;
+      background: var(--amber-dim);
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+    }
+
+    /* ─── SECTIONS ───────────────────── */
+    section {
+      padding: 100px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    section.full-width {
+      max-width: none;
+      padding-left: 5%;
+      padding-right: 5%;
+    }
+
+    .s-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--amber);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .s-tag::before { content: '01'; color: var(--text-3); }
+    .s-tag.t2::before { content: '02'; }
+    .s-tag.t3::before { content: '03'; }
+    .s-tag.t4::before { content: '04'; }
+    .s-tag.t5::before { content: '05'; }
+    .s-tag::after { content: '—'; color: var(--text-3); }
+
+    .s-title {
+      font-family: var(--font-head);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      color: var(--text-1);
+      margin-bottom: 18px;
+    }
+
+    .s-title .amber { color: var(--amber); }
+
+    .s-sub {
+      font-size: 0.97rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      max-width: 540px;
+    }
+
+    .s-header { margin-bottom: 64px; }
+
+    /* ─── SERVICES ───────────────────── */
+    #servicos { background: var(--bg); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .svc-card {
+      background: var(--bg-card);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.25s;
+    }
+
+    .svc-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--amber), var(--amber-light));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+      transform-origin: left;
+    }
+
+    .svc-card:hover { background: var(--bg-3); }
+    .svc-card:hover::after { transform: scaleX(1); }
+
+    .svc-num {
+      font-family: var(--font-head);
+      font-size: 5rem;
+      line-height: 1;
+      color: rgba(245,158,11,0.08);
+      position: absolute;
+      top: 20px; right: 28px;
+      letter-spacing: -0.05em;
+    }
+
+    .svc-icon {
+      font-size: 32px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .svc-card h3 {
+      font-family: var(--font-head);
+      font-size: 1.7rem;
+      letter-spacing: 0.04em;
+      color: var(--text-1);
+      margin-bottom: 14px;
+    }
+
+    .svc-card p {
+      font-size: 0.88rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+
+    .svc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .svc-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      line-height: 1.4;
+    }
+
+    .svc-item::before {
+      content: '▸';
+      color: var(--amber);
+      flex-shrink: 0;
+      margin-top: 0px;
+      font-size: 0.8rem;
+    }
+
+    /* ─── DIFFERENTIALS ──────────────── */
+    #diferenciais {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #diferenciais section {
+      background: transparent;
+    }
+
+    .diff-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 100px 5%;
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .diff-left .s-sub { max-width: 400px; margin-bottom: 40px; }
+
+    .diff-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .diff-hl {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.25s;
+    }
+
+    .diff-hl:hover {
+      border-color: rgba(245,158,11,0.2);
+      background: var(--bg-3);
+    }
+
+    .diff-hl-icon {
+      width: 44px; height: 44px;
+      background: var(--amber-dim);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .diff-hl-text strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-1);
+      margin-bottom: 3px;
+    }
+
+    .diff-hl-text span {
+      font-size: 0.78rem;
+      color: var(--text-3);
+    }
+
+    /* Right: metrics */
+    .diff-metrics {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,158,11,0.2);
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .metric-card:hover::before { opacity: 1; }
+
+    .metric-num {
+      font-family: var(--font-head);
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--text-1);
+      letter-spacing: 0.02em;
+      margin-bottom: 8px;
+    }
+
+    .metric-num em { color: var(--amber); font-style: normal; }
+
+    .metric-label {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 600;
+    }
+
+    .metric-icon {
+      position: absolute;
+      bottom: 20px; right: 20px;
+      font-size: 2rem;
+      opacity: 0.12;
+    }
+
+    /* ─── MATERIALS ───────────────────── */
+    #materiais { background: var(--bg); }
+
+    .materials-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mat-card:hover {
+      border-color: rgba(245,158,11,0.25);
+      transform: translateY(-5px);
+    }
+
+    .mat-card:hover .mat-bg { opacity: 1; }
+
+    .mat-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 100%, rgba(245,158,11,0.06), transparent 70%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .mat-emoji {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+      display: block;
+      position: relative;
+    }
+
+    .mat-name {
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      color: var(--text-1);
+      letter-spacing: 0.04em;
+      margin-bottom: 8px;
+    }
+
+    .mat-desc {
+      font-size: 0.78rem;
+      color: var(--text-3);
+      line-height: 1.6;
+    }
+
+    /* ─── GALLERY ────────────────────── */
+    #galeria { background: var(--bg-2); border-top: 1px solid var(--border); }
+
+    .gallery-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 240px 240px;
+      gap: 12px;
+    }
+
+    .gal-item {
+      border-radius: var(--radius);
+      overflow: hidden;
+      position: relative;
+      background: var(--bg-3);
+      border: 1px solid var(--border);
+      cursor: pointer;
+    }
+
+    .gal-item.big {
+      grid-row: 1 / 3;
+    }
+
+    .gal-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--bg-3), var(--bg-2));
+      color: var(--text-3);
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: all 0.3s;
+    }
+
+    .gal-emoji { font-size: 2rem; }
+
+    .gal-item:hover .gal-placeholder {
+      background: linear-gradient(135deg, var(--bg-2), #15202e);
+    }
+
+    .gal-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(8,12,16,0.85) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.25s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .gal-item:hover .gal-overlay { opacity: 1; }
+
+    .gal-overlay-text {
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-1);
+    }
+
+    /* ─── REVIEWS ────────────────────── */
+    #avaliacoes { background: var(--bg); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .rev-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.25s;
+    }
+
+    .rev-card:hover {
+      border-color: rgba(245,158,11,0.2);
+      transform: translateY(-4px);
+    }
+
+    .rev-card::before {
+      content: '"';
+      position: absolute;
+      top: 16px; right: 22px;
+      font-family: var(--font-head);
+      font-size: 6rem;
+      line-height: 1;
+      color: rgba(245,158,11,0.06);
+    }
+
+    .rev-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 16px;
+      font-size: 0.85rem;
+    }
+
+    .rev-text {
+      font-size: 0.9rem;
+      color: var(--text-2);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+
+    .rev-footer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .rev-avatar {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, var(--amber), #d97706);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: #000;
+      flex-shrink: 0;
+    }
+
+    .rev-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text-1);
+    }
+
+    .rev-city {
+      font-size: 0.74rem;
+      color: var(--text-3);
+      margin-top: 2px;
+    }
+
+    /* ─── COVERAGE ───────────────────── */
+    #atendimento {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cov-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 100px 5%;
+    }
+
+    .cov-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 48px;
+    }
+
+    .cov-chip {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .cov-chip:hover {
+      border-color: rgba(245,158,11,0.2);
+      background: var(--bg-3);
+    }
+
+    .cov-dot {
+      width: 8px; height: 8px;
+      background: var(--amber);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .cov-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-2);
+      line-height: 1.2;
+    }
+
+    /* ─── CTA ────────────────────────── */
+    #orcamento {
+      background: var(--bg);
+      padding: 100px 5%;
+    }
+
+    .cta-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .cta-box {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: 32px;
+      padding: 80px 64px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent 5%, var(--amber) 50%, transparent 95%);
+    }
+
+    .cta-box::after {
+      content: '';
+      position: absolute;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(245,158,11,0.07) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .cta-left { position: relative; z-index: 1; }
+
+    .cta-left .s-title { margin-bottom: 14px; }
+    .cta-left .s-sub { margin-bottom: 32px; }
+
+    .cta-feats {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .cta-feat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-2);
+    }
+
+    .cta-feat-dot {
+      width: 18px; height: 18px;
+      background: rgba(34,197,94,0.15);
+      border: 1px solid rgba(34,197,94,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .cta-feat-dot::after {
+      content: '';
+      width: 7px; height: 7px;
+      background: var(--wa);
+      border-radius: 50%;
+    }
+
+    .cta-right {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+    }
+
+    .cta-contact-label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .btn-wa-lg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: var(--wa);
+      color: #fff;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 18px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px var(--wa-glow);
+      margin-bottom: 16px;
+    }
+
+    .btn-wa-lg:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px var(--wa-glow);
+    }
+
+    .btn-wa-lg svg { width: 22px; height: 22px; }
+
+    .cta-phone-info {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-3);
+      margin-bottom: 24px;
+    }
+
+    .cta-phone-info a {
+      color: var(--text-2);
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .cta-phone-info a:hover { color: var(--amber); }
+
+    .cta-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-3);
+      font-size: 0.75rem;
+      margin-bottom: 16px;
+    }
+
+    .cta-divider::before, .cta-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .social-btns {
+      display: flex;
+      gap: 10px;
+    }
+
+    .social-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .social-btn:hover {
+      border-color: var(--border-2);
+      background: rgba(255,255,255,0.04);
+      color: var(--text-1);
+    }
+
+    .social-btn svg { width: 15px; height: 15px; }
+
+    /* ─── FORMULÁRIO DE ORÇAMENTO ASF ───────────────────── */
+    .cta-box {
+      grid-template-columns: 1fr 480px;
+    }
+
+    .asf-wa-form {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .asf-form-title {
+      margin: 0 0 6px;
+      font-family: var(--font-head);
+      font-size: 2rem;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--text-1);
+    }
+
+    .asf-form-subtitle {
+      margin: 0 0 12px;
+      color: var(--text-2);
+      font-size: 0.86rem;
+      line-height: 1.65;
+    }
+
+    .asf-form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .asf-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .asf-form-group label {
+      font-family: var(--font-mono);
+      font-size: 0.66rem;
+      color: var(--text-3);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .asf-form-group input,
+    .asf-form-group select,
+    .asf-form-group textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      outline: none;
+      border-radius: 8px;
+      background: rgba(8,12,16,0.72);
+      color: var(--text-1);
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+    }
+
+    .asf-form-group input,
+    .asf-form-group select {
+      min-height: 48px;
+      padding: 0 14px;
+    }
+
+    .asf-form-group textarea {
+      min-height: 112px;
+      padding: 14px;
+      resize: vertical;
+    }
+
+    .asf-form-group input::placeholder,
+    .asf-form-group textarea::placeholder {
+      color: rgba(148,163,184,0.52);
+    }
+
+    .asf-form-group select {
+      cursor: pointer;
+    }
+
+    .asf-form-group select option {
+      background: #0d1219;
+      color: #f1f5f9;
+    }
+
+    .asf-form-group input:focus,
+    .asf-form-group select:focus,
+    .asf-form-group textarea:focus {
+      border-color: rgba(245,158,11,0.55);
+      background: rgba(8,12,16,0.95);
+      box-shadow: 0 0 0 4px rgba(245,158,11,0.10);
+    }
+
+    .asf-form-btn {
+      width: 100%;
+      min-height: 52px;
+      border: none;
+      border-radius: 8px;
+      background: var(--wa);
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.92rem;
+      cursor: pointer;
+      letter-spacing: 0.03em;
+      transition: all 0.2s;
+      box-shadow: 0 4px 24px var(--wa-glow);
+    }
+
+    .asf-form-btn:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px var(--wa-glow);
+    }
+
+    .asf-form-small {
+      margin: -2px 0 0;
+      text-align: center;
+      color: var(--text-3);
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 1024px) {
+      .cta-box {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .asf-form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .asf-form-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* ─── FOOTER ─────────────────────── */
+    footer {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 60px 5% 32px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 260px 1fr 1fr 1fr;
+      gap: 60px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 28px;
+    }
+
+    .footer-logo-img {
+      width: 158px;
+      height: 54px;
+      object-fit: contain;
+      margin-bottom: 16px;
+      display: block;
+      filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--text-3);
+      line-height: 1.7;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--amber);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul a {
+      font-size: 0.85rem;
+      color: var(--text-3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover { color: var(--text-1); }
+
+    .footer-contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.82rem;
+      color: var(--text-3);
+      margin-bottom: 10px;
+    }
+
+    .footer-contact-row svg {
+      width: 14px; height: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--amber);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-3);
+    }
+
+    .footer-copy span { color: var(--amber); }
+
+    /* ─── WA FLOAT ────────────────────── */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 600;
+      width: 56px; height: 56px;
+      background: var(--wa);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 6px 24px var(--wa-glow);
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: popIn 0.5s 1.2s ease both;
+    }
+
+    .wa-float:hover {
+      transform: scale(1.12) translateY(-2px);
+      box-shadow: 0 10px 36px rgba(34,197,94,0.45);
+    }
+
+    .wa-float svg { width: 28px; height: 28px; }
+
+    .wa-ring {
+      position: absolute;
+      inset: -8px;
+      border-radius: 50%;
+      border: 2px solid rgba(34,197,94,0.35);
+      animation: ripple 2.5s ease-out infinite;
+    }
+
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0) rotate(-180deg); }
+      to   { opacity: 1; transform: scale(1) rotate(0); }
+    }
+
+    /* ─── REVEAL ANIMATION ────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: none; }
+
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal-left.visible { opacity: 1; transform: none; }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ─── RESPONSIVE ──────────────────── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-panel { max-width: 560px; }
+      .diff-grid { grid-template-columns: 1fr; gap: 52px; }
+      .diff-metrics { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .cov-grid { grid-template-columns: repeat(3, 1fr); }
+      .cta-box { grid-template-columns: 1fr; gap: 36px; padding: 52px 40px; }
+      .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .materials-row { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: clamp(3.2rem, 12vw, 5rem); }
+      .hero-stats { gap: 20px; }
+      .gallery-layout {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 200px 200px;
+      }
+      .gal-item.big { grid-row: auto; grid-column: 1 / 3; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; }
+      .trust-strip { gap: 24px; }
+      .cta-box { padding: 40px 28px; }
+    }
+
+    @media (max-width: 480px) {
+      nav { height: 66px; }
+      .nav-logo-img { width: 132px; height: 46px; }
+      .nav-cta { display: none; }
+      .hero { padding-top: 100px; }
+      .hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+      .hero-actions { flex-direction: column; }
+      .btn-wa, .btn-outline { justify-content: center; }
+      .hero-stats { flex-wrap: wrap; gap: 16px; }
+      .gallery-layout { grid-template-columns: 1fr; grid-template-rows: none; }
+      .gal-item.big { grid-column: auto; }
+      .gal-item { height: 180px; }
+      .cov-grid { grid-template-columns: repeat(2, 1fr); }
+      .materials-row { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+  
+    /* ─── MOBILE RESPONSIVO REFORÇADO ──────────────────── */
+    img, svg, video, canvas {
+      max-width: 100%;
+    }
+
+    a, button {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    @media (max-width: 900px) {
+      body {
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      nav {
+        height: 66px;
+        padding: 0 18px;
+      }
+
+      .nav-logo-img {
+        width: 136px;
+        height: 48px;
+        object-fit: contain;
+      }
+
+      .mobile-menu {
+        top: 66px;
+        padding: 18px;
+      }
+
+      .mobile-menu a {
+        width: 100%;
+      }
+
+      .mobile-menu .nav-cta {
+        display: flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 100px 18px 56px !important;
+      }
+
+      .hero-inner {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 34px;
+        width: 100%;
+      }
+
+      .hero-left {
+        width: 100%;
+      }
+
+      .hero-label {
+        font-size: 0.62rem;
+        line-height: 1.4;
+        flex-wrap: wrap;
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 17vw, 4.8rem);
+        line-height: 0.9;
+        word-break: normal;
+      }
+
+      .hero-desc {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        max-width: 100%;
+      }
+
+      .hero-actions {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        width: 100%;
+      }
+
+      .btn-wa,
+      .btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        padding: 15px 18px;
+      }
+
+      .hero-stats {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        margin-top: 34px;
+        padding-top: 24px;
+      }
+
+      .hero-stat {
+        min-width: 0;
+      }
+
+      .hero-stat-num {
+        font-size: clamp(2rem, 10vw, 2.8rem);
+      }
+
+      .hero-stat-label {
+        font-size: 0.62rem;
+        line-height: 1.25;
+      }
+
+      .hero-panel {
+        width: 100%;
+        max-width: 100%;
+        padding: 22px 16px;
+        border-radius: 20px;
+      }
+
+      .panel-service {
+        padding: 12px;
+        gap: 10px;
+      }
+
+      .panel-service-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+      }
+
+      .panel-service-name {
+        font-size: 0.86rem;
+      }
+
+      .panel-service-desc {
+        font-size: 0.7rem;
+      }
+
+      .trust-strip {
+        padding: 16px 18px;
+        gap: 10px;
+        justify-content: stretch;
+      }
+
+      .trust-item {
+        width: calc(50% - 5px);
+        font-size: 0.68rem;
+        line-height: 1.25;
+        gap: 8px;
+      }
+
+      .trust-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+      }
+
+      section {
+        padding: 64px 18px;
+      }
+
+      .s-header {
+        margin-bottom: 36px;
+      }
+
+      .s-title {
+        font-size: clamp(2.3rem, 12vw, 3.4rem);
+        line-height: 0.95;
+      }
+
+      .s-sub {
+        font-size: 0.92rem;
+        line-height: 1.65;
+        max-width: 100%;
+      }
+
+      .services-grid,
+      .reviews-grid,
+      .materials-row,
+      .diff-grid,
+      .diff-metrics,
+      .cov-grid,
+      .footer-top,
+      .cta-box {
+        grid-template-columns: 1fr !important;
+      }
+
+      .svc-card {
+        padding: 32px 22px;
+      }
+
+      .svc-num {
+        font-size: 4rem;
+        top: 18px;
+        right: 20px;
+      }
+
+      .diff-inner,
+      .cov-inner,
+      #orcamento {
+        padding: 64px 18px;
+      }
+
+      .diff-grid {
+        gap: 36px;
+      }
+
+      .diff-hl {
+        align-items: flex-start;
+        padding: 16px;
+      }
+
+      .metric-card {
+        padding: 26px 22px;
+      }
+
+      .metric-num {
+        font-size: 3rem;
+      }
+
+      .materials-row {
+        gap: 12px;
+      }
+
+      .gallery-layout {
+        display: grid;
+        grid-template-columns: 1fr !important;
+        grid-template-rows: none !important;
+        gap: 12px;
+      }
+
+      .gal-item,
+      .gal-item.big {
+        grid-column: auto !important;
+        grid-row: auto !important;
+        min-height: 190px;
+        height: 190px;
+      }
+
+      .reviews-grid {
+        gap: 14px;
+      }
+
+      .rev-card {
+        padding: 26px 22px;
+      }
+
+      .cov-grid {
+        gap: 10px;
+      }
+
+      .cov-chip {
+        padding: 15px 14px;
+      }
+
+      .cta-box {
+        padding: 34px 20px;
+        gap: 26px;
+        border-radius: 24px;
+      }
+
+      .cta-right {
+        padding: 24px 18px;
+      }
+
+      .btn-wa-lg {
+        width: 100%;
+        padding: 16px 18px;
+        text-align: center;
+      }
+
+      .social-btns {
+        flex-direction: column;
+      }
+
+      footer {
+        padding: 46px 18px 28px;
+      }
+
+      .footer-top {
+        gap: 30px;
+        padding-bottom: 34px;
+      }
+
+      .footer-logo-img {
+        width: 146px;
+        height: 50px;
+      }
+
+      .footer-bottom {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .wa-float {
+        width: 54px;
+        height: 54px;
+        right: 18px;
+        bottom: 18px;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .hero-stats {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .hero-stat {
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-stat:last-child {
+        border-bottom: 0;
+      }
+
+      .trust-item {
+        width: 100%;
+      }
+
+      .materials-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      .panel-service-arrow {
+        display: none;
+      }
+
+      .nav-logo-img {
+        width: 124px;
+        height: 44px;
+      }
+    }
+
+
+    /* ─── ICONES NOVOS / TAMANHO CERTO ─────────────────── */
+    .panel-service-icon,
+    .trust-icon,
+    .diff-hl-icon,
+    .svc-icon,
+    .mat-emoji {
+      background: linear-gradient(145deg, rgba(249,115,22,0.16), rgba(124,45,18,0.18)) !important;
+      border: 1px solid rgba(249,115,22,0.42) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 10px 24px rgba(0,0,0,0.22) !important;
+      color: #f97316 !important;
+      line-height: 1 !important;
+      filter: none !important;
+    }
+
+    .icon-line {
+      width: 22px;
+      height: 22px;
+      display: block;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.9;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .panel-service-icon .icon-line { width: 18px; height: 18px; }
+    .trust-icon .icon-line { width: 15px; height: 15px; }
+    .diff-hl-icon .icon-line { width: 24px; height: 24px; }
+    .svc-icon .icon-line,
+    .mat-emoji .icon-line { width: 24px; height: 24px; }
+
+    .panel-service-icon {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 8px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .trust-icon {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .diff-hl-icon {
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      flex-shrink: 0 !important;
+    }
+
+    .svc-icon,
+    .mat-emoji {
+      width: 54px !important;
+      height: 54px !important;
+      border-radius: 12px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-bottom: 24px !important;
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-service:hover .panel-service-icon,
+    .diff-hl:hover .diff-hl-icon,
+    .svc-card:hover .svc-icon,
+    .mat-card:hover .mat-emoji,
+    .trust-item:hover .trust-icon {
+      transform: translateY(-2px);
+      border-color: rgba(249,115,22,0.70) !important;
+      background: linear-gradient(145deg, rgba(249,115,22,0.24), rgba(124,45,18,0.22)) !important;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 14px 30px rgba(249,115,22,0.15) !important;
+    }
+
+    .panel-service-icon,
+    .diff-hl-icon,
+    .svc-icon,
+    .mat-emoji,
+    .trust-icon {
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+    }
+
+    @media (max-width: 900px) {
+      .diff-hl-icon { width: 52px !important; height: 52px !important; }
+      .diff-hl-icon .icon-line { width: 22px; height: 22px; }
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- ══ NAV ══════════════════════════════ -->
+<nav id="main-nav">
+  <a href="#inicio" class="nav-logo" aria-label="A.S.F Calhas">
+    <img src="img/calhas.logo2.png" alt="Logo A.S.F Calhas" class="nav-logo-img">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#materiais">Materiais</a></li>
+    <li><a href="#galeria">Projetos</a></li>
+    <li><a href="#avaliacoes">Avaliações</a></li>
+    <li><a href="#atendimento">Atendimento</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="nav-cta">
+      <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+      Orçamento Grátis
+    </a>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#servicos" class="mobile-link">Serviços</a>
+  <a href="#materiais" class="mobile-link">Materiais</a>
+  <a href="#galeria" class="mobile-link">Projetos</a>
+  <a href="#avaliacoes" class="mobile-link">Avaliações</a>
+  <a href="#atendimento" class="mobile-link">Atendimento</a>
+  <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="nav-cta">
+    <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+    </svg>
+    Orçamento Grátis
+  </a>
+</div>
+
+<!-- ══ HERO ══════════════════════════════ -->
+<section class="hero" id="inicio" style="max-width:none; padding-top:120px; padding-bottom:80px;">
+  <div class="hero-bg"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-label">📍 São José dos Pinhais – PR e região</div>
+
+      <h1>
+        <span>CALHAS</span>
+        <span class="line-accent">INSTALADAS</span>
+        <span class="line-outline">COM PRECISÃO</span>
+      </h1>
+
+      <p class="hero-desc">
+        Instalação, manutenção e limpeza de calhas com materiais de primeira linha, mão de obra especializada e atendimento ágil. Protegemos seu imóvel do jeito certo.
+      </p>
+
+      <div class="hero-actions">
+        <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="btn-wa">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          Pedir Orçamento Grátis
+        </a>
+        <a href="#servicos" class="btn-outline">Ver serviços ↓</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="counter" data-target="200">0</span><em>+</em></div>
+          <div class="hero-stat-label">Projetos feitos</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="counter" data-target="8">0</span><em>+</em></div>
+          <div class="hero-stat-label">Anos de experiência</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num"><span class="counter" data-target="100">0</span><em>%</em></div>
+          <div class="hero-stat-label">Satisfação garantida</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-panel">
+      <div class="panel-title">Nossos serviços</div>
+      <div class="panel-services">
+        <a href="#servicos" class="panel-service">
+          <div class="panel-service-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7l1-7z"/></svg></div>
+          <div>
+            <div class="panel-service-name">Instalação de Calhas</div>
+            <div class="panel-service-desc">Alumínio, zinco e galvanizado</div>
+          </div>
+          <div class="panel-service-arrow">›</div>
+        </a>
+        <a href="#servicos" class="panel-service">
+          <div class="panel-service-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg></div>
+          <div>
+            <div class="panel-service-name">Manutenção e Reparos</div>
+            <div class="panel-service-desc">Vazamentos, substituição e fixação</div>
+          </div>
+          <div class="panel-service-arrow">›</div>
+        </a>
+        <a href="#servicos" class="panel-service">
+          <div class="panel-service-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></div>
+          <div>
+            <div class="panel-service-name">Limpeza Preventiva</div>
+            <div class="panel-service-desc">Desentupimento e remoção de resíduos</div>
+          </div>
+          <div class="panel-service-arrow">›</div>
+        </a>
+        <a href="#servicos" class="panel-service">
+          <div class="panel-service-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4z"/><path d="M4 4l4 4"/><path d="M6 2l4 4"/></svg></div>
+          <div>
+            <div class="panel-service-name">Rufos e Cumeeiras</div>
+            <div class="panel-service-desc">Vedação total do telhado</div>
+          </div>
+          <div class="panel-service-arrow">›</div>
+        </a>
+      </div>
+      <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="panel-cta">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        Falar agora pelo WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TRUST STRIP ══════════════════════ -->
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-icon">🛡️</div>Serviço com Garantia</div>
+  <div class="trust-item"><div class="trust-icon">⚡</div>Atendimento Rápido</div>
+  <div class="trust-item"><div class="trust-icon">💬</div>Orçamento Sem Compromisso</div>
+  <div class="trust-item"><div class="trust-icon">⭐</div>Clientes Satisfeitos</div>
+  <div class="trust-item"><div class="trust-icon">🧱</div>Materiais de Qualidade</div>
+</div>
+
+<!-- ══ SERVICES ══════════════════════════ -->
+<section id="servicos" style="background:var(--bg);">
+  <div class="s-header reveal">
+    <div class="s-tag t1">Nossos Serviços</div>
+    <h2 class="s-title">TUDO QUE SEU <span class="amber">IMÓVEL PRECISA</span></h2>
+    <p class="s-sub">Trabalhamos com materiais premium e profissionais experientes para entregar o melhor resultado em cada etapa do projeto.</p>
+  </div>
+
+  <div class="services-grid reveal">
+    <div class="svc-card">
+      <div class="svc-num">01</div>
+      <span class="svc-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7l1-7z"/></svg></span>
+      <h3>INSTALAÇÃO DE CALHAS</h3>
+      <p>Instalação precisa de calhas com caimento correto, vedação total e acabamento impecável em qualquer tipo de imóvel — residencial ou comercial.</p>
+      <div class="svc-list">
+        <div class="svc-item">Calhas em alumínio, zinco e galvanizado</div>
+        <div class="svc-item">Medição e orçamento no local</div>
+        <div class="svc-item">Fixação reforçada e vedação total</div>
+        <div class="svc-item">Garantia do serviço prestado</div>
+        <div class="svc-item">Condutores e emendas incluídos</div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">02</div>
+      <span class="svc-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg></span>
+      <h3>MANUTENÇÃO E REPAROS</h3>
+      <p>Diagnóstico preciso e correção de falhas nas suas calhas. Evite danos maiores e prolongue a vida útil da instalação com manutenção profissional.</p>
+      <div class="svc-list">
+        <div class="svc-item">Diagnóstico e correção de vazamentos</div>
+        <div class="svc-item">Substituição de peças danificadas</div>
+        <div class="svc-item">Reforço de suportes e abraçadeiras</div>
+        <div class="svc-item">Vistoria preventiva completa</div>
+        <div class="svc-item">Reparos em rufos e cumeeiras</div>
+      </div>
+    </div>
+
+    <div class="svc-card">
+      <div class="svc-num">03</div>
+      <span class="svc-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></span>
+      <h3>LIMPEZA PREVENTIVA</h3>
+      <p>Remoção completa de folhas, sujeira e entupimentos para garantir o escoamento perfeito da água e evitar transtornos nas chuvas.</p>
+      <div class="svc-list">
+        <div class="svc-item">Desentupimento de calhas e ralos</div>
+        <div class="svc-item">Remoção de folhas e resíduos</div>
+        <div class="svc-item">Limpeza de rufos e cumeeiras</div>
+        <div class="svc-item">Serviço preventivo periódico</div>
+        <div class="svc-item">Verificação do sistema completo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DIFERENCIAIS ══════════════════════ -->
+<div id="diferenciais">
+  <div class="diff-inner">
+    <div class="diff-grid">
+      <div class="reveal-left">
+        <div class="s-tag t2">Por Que Nos Escolher</div>
+        <h2 class="s-title">QUALIDADE QUE <span class="amber">VOCÊ VÊ</span></h2>
+        <p class="s-sub">Cada projeto é tratado com dedicação total. Do orçamento à entrega, você tem acompanhamento completo e resultado garantido.</p>
+
+        <div class="diff-highlights" style="margin-top:36px;">
+          <div class="diff-hl">
+            <div class="diff-hl-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7l1-7z"/></svg></div>
+            <div class="diff-hl-text">
+              <strong>Atendimento ágil e pontual</strong>
+              <span>Resposta rápida e cumprimento de prazos em todos os projetos</span>
+            </div>
+          </div>
+          <div class="diff-hl">
+            <div class="diff-hl-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg></div>
+            <div class="diff-hl-text">
+              <strong>Garantia em todos os serviços</strong>
+              <span>Trabalhamos com segurança e responsabilidade em cada entrega</span>
+            </div>
+          </div>
+          <div class="diff-hl">
+            <div class="diff-hl-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M8 20h8"/><path d="M12 16v4"/></svg></div>
+            <div class="diff-hl-text">
+              <strong>Preço justo e transparente</strong>
+              <span>Orçamento detalhado sem surpresas ou cobranças ocultas</span>
+            </div>
+          </div>
+          <div class="diff-hl">
+            <div class="diff-hl-icon"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4z"/><path d="M4 4l4 4"/><path d="M6 2l4 4"/></svg></div>
+            <div class="diff-hl-text">
+              <strong>Materiais de primeira linha</strong>
+              <span>Usamos somente produtos de qualidade comprovada no mercado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="diff-metrics reveal-right">
+        <div class="metric-card">
+          <div class="metric-num"><span class="counter" data-target="200">0</span><em>+</em></div>
+          <div class="metric-label">Serviços entregues</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num"><span class="counter" data-target="8">0</span><em>+</em></div>
+          <div class="metric-label">Anos de experiência</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num"><span class="counter" data-target="7">0</span><em>+</em></div>
+          <div class="metric-label">Cidades atendidas</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-num"><span class="counter" data-target="100">0</span><em>%</em></div>
+          <div class="metric-label">Satisfação garantida</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ MATERIALS ═══════════════════════════ -->
+<section id="materiais" style="background:var(--bg);">
+  <div class="s-header reveal">
+    <div class="s-tag t3">Materiais Disponíveis</div>
+    <h2 class="s-title">TRABALHAMOS COM <span class="amber">OS MELHORES</span></h2>
+    <p class="s-sub">Oferecemos diferentes tipos de materiais para que você escolha a melhor opção para o seu projeto e orçamento.</p>
+  </div>
+
+  <div class="materials-row reveal">
+    <div class="mat-card">
+      <div class="mat-bg"></div>
+      <span class="mat-emoji"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 10-13h-7l1-7z"/></svg></span>
+      <div class="mat-name">ALUMÍNIO</div>
+      <div class="mat-desc">Leve, resistente à corrosão e com ótima durabilidade. A escolha mais popular para residências modernas.</div>
+    </div>
+    <div class="mat-card">
+      <div class="mat-bg"></div>
+      <span class="mat-emoji"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3.2 8.4-7 10-3.8-1.6-7-5-7-10V6l7-3z"/><path d="M9 12l2 2 4-5"/></svg></span>
+      <div class="mat-name">GALVANIZADO</div>
+      <div class="mat-desc">Resistência superior para ambientes mais agressivos. Excelente para galpões e construções industriais.</div>
+    </div>
+    <div class="mat-card">
+      <div class="mat-bg"></div>
+      <span class="mat-emoji"><svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5 5L4 17l3 3 5.7-5.7a4 4 0 0 0 5-5l-2.4 2.4-3-3 2.4-2.4z"/><path d="M4 4l4 4"/><path d="M6 2l4 4"/></svg></span>
+      <div class="mat-name">ZINCO</div>
+      <div class="mat-desc">Visual sofisticado, longevidade extrema e resistência natural às intempéries. Premium e durável.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ GALLERY ═══════════════════════════ -->
+<section id="galeria" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
+  <div class="s-header reveal">
+    <div class="s-tag t4">Nossos Projetos</div>
+    <h2 class="s-title">TRABALHOS <span class="amber">REALIZADOS</span></h2>
+    <p class="s-sub">Cada projeto entregue com qualidade, capricho e atenção aos detalhes. Veja o que fazemos na prática.</p>
+  </div>
+
+  <div class="gallery-layout reveal">
+    <div class="gal-item big">
+      <div class="gal-placeholder">
+        <span class="gal-emoji">📸</span>
+        <span>Instalação residencial completa – São José dos Pinhais</span>
+      </div>
+      <div class="gal-overlay"><div class="gal-overlay-text">Calha de alumínio – Residência</div></div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <span class="gal-emoji">📸</span>
+        <span>Manutenção e reparo</span>
+      </div>
+      <div class="gal-overlay"><div class="gal-overlay-text">Reparo – Comercial</div></div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <span class="gal-emoji">📸</span>
+        <span>Instalação industrial</span>
+      </div>
+      <div class="gal-overlay"><div class="gal-overlay-text">Galpão industrial – Pinhais</div></div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <span class="gal-emoji">📸</span>
+        <span>Calha galvanizada – Casa nova</span>
+      </div>
+      <div class="gal-overlay"><div class="gal-overlay-text">Calha galvanizada – Residência</div></div>
+    </div>
+    <div class="gal-item">
+      <div class="gal-placeholder">
+        <span class="gal-emoji">📸</span>
+        <span>Limpeza preventiva</span>
+      </div>
+      <div class="gal-overlay"><div class="gal-overlay-text">Limpeza e manutenção</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ REVIEWS ═══════════════════════════ -->
+<section id="avaliacoes" style="background:var(--bg);">
+  <div class="s-header reveal" style="text-align:center;">
+    <div class="s-tag t4">Avaliações</div>
+    <h2 class="s-title">O QUE NOSSOS <span class="amber">CLIENTES DIZEM</span></h2>
+    <p class="s-sub" style="margin:0 auto;">A satisfação de cada cliente é o reflexo do nosso trabalho. Confira o que falam sobre a A.S.F Calhas.</p>
+  </div>
+
+  <div class="reviews-grid">
+    <div class="rev-card reveal">
+      <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+      <p class="rev-text">Serviço impecável! A A.S.F Calhas instalou as calhas da minha casa em um dia, pontual e muito caprichoso. Não precisei me preocupar com nada, o resultado ficou perfeito.</p>
+      <div class="rev-footer">
+        <div class="rev-avatar">CA</div>
+        <div>
+          <div class="rev-name">Carlos Andrade</div>
+          <div class="rev-city">São José dos Pinhais – PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card reveal" style="transition-delay:0.1s">
+      <div class="rev-stars">⭐⭐⭐⭐⭐</div>
+      <p class="rev-text">Ótimo atendimento e preço justo. Minha calha estava entupida há meses e eles resolveram no mesmo dia. Super recomendo para quem procura serviço de qualidade na região.</p>
+      <div class="rev-footer">
+        <div class="rev-avatar">MF</div>
+        <div>
+          <div class="rev-name">Mariana Ferreira</div>
+          <div class="rev-city">Curitiba – PR</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rev-card reveal" style="transition-delay:0.2s">
+      <div class="rev-stars">⭐⭐⭐⭐</div>
+      <p class="rev-text">Contratei para instalar calhas novas no meu galpão comercial. Trabalho feito com muita qualidade e dentro do prazo combinado. Profissionais de confiança, sem dúvida!</p>
+      <div class="rev-footer">
+        <div class="rev-avatar">RL</div>
+        <div>
+          <div class="rev-name">Roberto Lima</div>
+          <div class="rev-city">Pinhais – PR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ COVERAGE ══════════════════════════ -->
+<div id="atendimento">
+  <div class="cov-inner">
+    <div class="reveal">
+      <div class="s-tag t5">Área de Atendimento</div>
+      <h2 class="s-title">ATENDEMOS TODA A <span class="amber">REGIÃO</span></h2>
+      <p class="s-sub">Estamos prontos para atender você em São José dos Pinhais e nos municípios vizinhos com agilidade e comprometimento.</p>
+    </div>
+
+    <div class="cov-grid reveal">
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">São José dos Pinhais</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Curitiba</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Pinhais</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Fazenda Rio Grande</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Araucária</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Colombo</div></div>
+      <div class="cov-chip"><div class="cov-dot"></div><div class="cov-name">Piraquara</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CTA ═══════════════════════════════ -->
+<section id="orcamento" style="background:var(--bg); max-width:none; padding:100px 5%;">
+  <div class="cta-wrap">
+    <div class="cta-box reveal">
+      <div class="cta-left">
+        <div class="s-tag" style="background:rgba(245,158,11,0.1); border-color:rgba(245,158,11,0.2);">Orçamento Grátis</div>
+        <h2 class="s-title" style="margin-top:14px;">PRONTO PARA <span class="amber">PROTEGER</span> SEU IMÓVEL?</h2>
+        <p class="s-sub">Fale agora com a A.S.F Calhas pelo WhatsApp, tire todas as suas dúvidas e receba um orçamento completo de forma rápida e sem compromisso.</p>
+        <div class="cta-feats" style="margin-top:28px;">
+          <div class="cta-feat"><div class="cta-feat-dot"></div> Resposta em até 5 minutos</div>
+          <div class="cta-feat"><div class="cta-feat-dot"></div> Orçamento 100% gratuito</div>
+          <div class="cta-feat"><div class="cta-feat-dot"></div> Sem compromisso de contratação</div>
+          <div class="cta-feat"><div class="cta-feat-dot"></div> Atendimento personalizado e transparente</div>
+        </div>
+      </div>
+
+      <div class="cta-right">
+        <div class="cta-contact-label">// Envie sua mensagem</div>
+        <h3 class="asf-form-title">Solicite seu orçamento</h3>
+        <p class="asf-form-subtitle">Preencha os dados abaixo e envie tudo direto para o WhatsApp da A.S.F Calhas.</p>
+
+        <form id="formOrcamentoASF" class="asf-wa-form">
+          <div class="asf-form-row">
+            <div class="asf-form-group">
+              <label for="asfNome">Nome</label>
+              <input type="text" id="asfNome" placeholder="Seu nome completo" required>
+            </div>
+
+            <div class="asf-form-group">
+              <label for="asfTelefone">Telefone</label>
+              <input type="text" id="asfTelefone" placeholder="(41) 9 9999-9999" maxlength="16" inputmode="numeric" autocomplete="tel" required>
+            </div>
+          </div>
+
+          <div class="asf-form-group">
+            <label for="asfEmail">E-mail</label>
+            <input type="email" id="asfEmail" placeholder="seuemail@gmail.com">
+          </div>
+
+          <div class="asf-form-group">
+            <label for="asfEndereco">Endereço do imóvel</label>
+            <input type="text" id="asfEndereco" placeholder="Rua, número, bairro e cidade" autocomplete="street-address" required>
+          </div>
+
+          <div class="asf-form-group">
+            <label for="asfServico">Serviço de interesse</label>
+            <select id="asfServico" required>
+              <option value="">Selecione uma opção...</option>
+              <option value="Instalação de calhas">Instalação de calhas</option>
+              <option value="Manutenção e reparos">Manutenção e reparos</option>
+              <option value="Limpeza preventiva">Limpeza preventiva</option>
+              <option value="Rufos e cumeeiras">Rufos e cumeeiras</option>
+              <option value="Condutores">Condutores</option>
+              <option value="Outro serviço">Outro serviço</option>
+            </select>
+          </div>
+
+          <div class="asf-form-group">
+            <label for="asfMensagem">Mensagem</label>
+            <textarea id="asfMensagem" placeholder="Conte um pouco sobre o que você precisa..." required></textarea>
+          </div>
+
+          <button type="submit" class="asf-form-btn">Enviar mensagem</button>
+          <p class="asf-form-small">Atendimento com A.S.F Calhas • São José dos Pinhais/PR</p>
+        </form>
+      </div>        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <img src="img/calhas.logo2.png" alt="Logo A.S.F Calhas" class="nav-logo-img">
+      <p class="footer-tagline">Especialistas em calhas na região de São José dos Pinhais e Curitiba – PR. Qualidade, pontualidade e garantia em cada projeto.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navegação</h4>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#materiais">Materiais</a></li>
+        <li><a href="#galeria">Projetos</a></li>
+        <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#orcamento">Orçamento</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Serviços</h4>
+      <ul>
+        <li><a href="#servicos">Instalação de Calhas</a></li>
+        <li><a href="#servicos">Manutenção e Reparos</a></li>
+        <li><a href="#servicos">Limpeza Preventiva</a></li>
+        <li><a href="#servicos">Rufos e Cumeeiras</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contato</h4>
+      <div class="footer-contact-row">
+        <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        (41) 99839-2646 – A.S.F Calhas
+      </div>
+      <div class="footer-contact-row">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        São José dos Pinhais – PR
+      </div>
+      <div style="display:flex; gap:10px; margin-top:8px;">
+        <a href="https://www.instagram.com/a.s.fcalhas?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener" class="social-btn" style="flex:none; padding:9px 14px;">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          IG
+        </a>
+        <a href="https://www.facebook.com/share/1AyPV1sm67/" target="_blank" rel="noopener" class="social-btn" style="flex:none; padding:9px 14px;">
+          <svg fill="currentColor" viewBox="0 0 24 24" width="14" height="14"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          FB
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 <span>A.S.F Calhas</span> – São José dos Pinhais – PR. Todos os direitos reservados.</p>
+    <p class="footer-copy">Feito com ❤️ para proteger seu imóvel</p>
+  </div>
+</footer>
+
+<!-- ══ FLOAT WA ═══════════════════════════ -->
+<a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="wa-float" title="Falar no WhatsApp">
+  <div class="wa-ring"></div>
+  <svg fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+</a>
+
+<script>
+  // ── Nav scroll ──────────────────────────
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // ── Hamburger ──────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-link, .mobile-menu .nav-cta').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+
+  // ── Reveal on scroll ────────────────────
+  const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        const delay = e.target.style.transitionDelay || '0s';
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── Stagger children ─────────────────────
+  document.querySelectorAll('.services-grid .svc-card, .reviews-grid .rev-card, .diff-highlights .diff-hl, .cov-grid .cov-chip, .materials-row .mat-card').forEach((el, i) => {
+    if (!el.classList.contains('reveal')) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i * 0.08) + 's';
+      observer.observe(el);
+    }
+  });
+
+
+  // ── Máscara do telefone: (41) 9 9999-9999 ───────────────
+  const telefoneASF = document.getElementById('asfTelefone');
+
+  if (telefoneASF) {
+    telefoneASF.addEventListener('input', () => {
+      let valor = telefoneASF.value.replace(/\D/g, '');
+
+      if (valor.length > 11) {
+        valor = valor.slice(0, 11);
+      }
+
+      if (valor.length === 0) {
+        telefoneASF.value = '';
+      } else if (valor.length <= 2) {
+        telefoneASF.value = `(${valor}`;
+      } else if (valor.length <= 3) {
+        telefoneASF.value = valor.replace(/^(\d{2})(\d{0,1})/, '($1) $2');
+      } else if (valor.length <= 7) {
+        telefoneASF.value = valor.replace(/^(\d{2})(\d{1})(\d{0,4})/, '($1) $2 $3');
+      } else {
+        telefoneASF.value = valor.replace(/^(\d{2})(\d{1})(\d{4})(\d{0,4})/, '($1) $2 $3-$4');
+      }
+    });
+  }
+
+  // ── Formulário de orçamento para WhatsApp ───────────────
+  const formOrcamentoASF = document.getElementById('formOrcamentoASF');
+
+  if (formOrcamentoASF) {
+    formOrcamentoASF.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const nome = document.getElementById('asfNome').value.trim();
+      const telefone = document.getElementById('asfTelefone').value.trim();
+      const email = document.getElementById('asfEmail').value.trim();
+      const endereco = document.getElementById('asfEndereco').value.trim();
+      const servico = document.getElementById('asfServico').value.trim();
+      const mensagem = document.getElementById('asfMensagem').value.trim();
+      const numeroWhatsApp = '554197286325';
+
+      const texto = `Olá, quero fazer um orçamento com a A.S.F Calhas.
+
+Nome: ${nome}
+Telefone: ${telefone}
+E-mail: ${email || 'Não informado'}
+Endereço do imóvel: ${endereco}
+Serviço de interesse: ${servico}
+
+Mensagem:
+${mensagem}`;
+
+      const linkWhatsApp = `https://api.whatsapp.com/send?phone=${numeroWhatsApp}&text=${encodeURIComponent(texto)}`;
+      window.open(linkWhatsApp, '_blank');
+    });
+  }
+
+  // ── Panel service link fix ───────────────
+  document.querySelectorAll('.panel-service').forEach(el => {
+    el.style.textDecoration = 'none';
+    el.style.color = 'inherit';
+  });
+
+  // ── Contador automático dos números ─────────────────
+  const counters = document.querySelectorAll('.counter');
+
+  function animateCounter(counter) {
+    if (counter.dataset.animated === 'true') return;
+
+    counter.dataset.animated = 'true';
+
+    const target = Number(counter.dataset.target) || 0;
+    const duration = 1800;
+    const startTime = performance.now();
+
+    function updateCounter(now) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const easeOut = 1 - Math.pow(1 - progress, 3);
+      const value = Math.floor(easeOut * target);
+
+      counter.textContent = value;
+
+      if (progress < 1) {
+        requestAnimationFrame(updateCounter);
+      } else {
+        counter.textContent = target;
+      }
+    }
+
+    requestAnimationFrame(updateCounter);
+  }
+
+  if ('IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.35 });
+
+    counters.forEach(counter => counterObserver.observe(counter));
+  } else {
+    counters.forEach(counter => animateCounter(counter));
+  }
+
+</script>
+</body>
+</html>
