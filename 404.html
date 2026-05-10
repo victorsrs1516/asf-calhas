@@ -203,16 +203,20 @@
     .tool {
       font-size: 110px;
       filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.35));
+      position: relative;
+      z-index: 2;
     }
 
     .drop {
       position: absolute;
-      width: 14px;
-      height: 14px;
+      width: 15px;
+      height: 15px;
       background: #f97316;
       border-radius: 50% 50% 50% 0;
-      transform: rotate(-45deg);
+      transform: rotate(135deg);
       animation: drip 2.2s infinite;
+      z-index: 3;
+      box-shadow: 0 6px 16px rgba(249, 115, 22, 0.22);
     }
 
     .drop1 {
@@ -244,7 +248,7 @@
 
     @keyframes drip {
       0% {
-        transform: translateY(-8px) rotate(-45deg);
+        transform: translateY(-8px) rotate(135deg);
         opacity: 0;
       }
 
@@ -253,7 +257,7 @@
       }
 
       100% {
-        transform: translateY(22px) rotate(-45deg);
+        transform: translateY(22px) rotate(135deg);
         opacity: 0;
       }
     }
@@ -292,6 +296,26 @@
 
       .tool {
         font-size: 75px;
+      }
+
+      .drop {
+        width: 12px;
+        height: 12px;
+      }
+
+      .drop1 {
+        top: 58px;
+        right: 63px;
+      }
+
+      .drop2 {
+        bottom: 50px;
+        left: 64px;
+      }
+
+      .drop3 {
+        bottom: 86px;
+        right: 44px;
       }
 
       h1 {
