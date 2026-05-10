@@ -2332,6 +2332,263 @@
       .gallery-lightbox-close { top: 16px; right: 16px; }
     }
 
+
+    /* ─── FAQ ─────────────────────────── */
+    #faq {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 100px 5%;
+      max-width: none;
+    }
+
+    .faq-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .s-tag.t6::before { content: '06'; }
+
+    .faq-layout {
+      display: grid;
+      grid-template-columns: 1fr 390px;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .faq-left {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .faq-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+    }
+
+    .faq-card:hover {
+      border-color: rgba(245,158,11,0.22);
+      background: var(--bg-3);
+    }
+
+    .faq-card.active {
+      border-color: rgba(245,158,11,0.34);
+      background: linear-gradient(180deg, rgba(245,158,11,0.055), var(--bg-card));
+    }
+
+    .faq-question {
+      width: 100%;
+      border: 0;
+      outline: none;
+      background: transparent;
+      color: var(--text-1);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--font-body);
+    }
+
+    .faq-question span {
+      font-size: 0.98rem;
+      font-weight: 800;
+      line-height: 1.35;
+      letter-spacing: 0.01em;
+    }
+
+    .faq-question strong {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid rgba(245,158,11,0.28);
+      background: rgba(245,158,11,0.10);
+      color: var(--amber-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 1.3rem;
+      line-height: 1;
+      transition: transform 0.22s ease, background 0.22s ease, color 0.22s ease;
+    }
+
+    .faq-card.active .faq-question strong {
+      transform: rotate(45deg);
+      background: var(--amber);
+      color: #000;
+      border-color: var(--amber);
+    }
+
+    .faq-answer {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.28s ease;
+    }
+
+    .faq-card.active .faq-answer {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-answer p {
+      overflow: hidden;
+      padding: 0 24px;
+      color: var(--text-2);
+      font-size: 0.9rem;
+      line-height: 1.75;
+    }
+
+    .faq-card.active .faq-answer p {
+      padding-bottom: 24px;
+    }
+
+    .faq-help-box {
+      position: sticky;
+      top: 96px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-2);
+      border-radius: var(--radius-xl);
+      padding: 34px 30px;
+      overflow: hidden;
+    }
+
+    .faq-help-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--amber), transparent);
+    }
+
+    .faq-help-box::after {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -120px;
+      bottom: -120px;
+      background: radial-gradient(circle, rgba(245,158,11,0.09), transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq-help-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(249,115,22,0.18), rgba(124,45,18,0.18));
+      border: 1px solid rgba(249,115,22,0.42);
+      color: #f97316;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .faq-help-icon .icon-line {
+      width: 26px;
+      height: 26px;
+    }
+
+    .faq-help-box h3 {
+      position: relative;
+      z-index: 1;
+      font-family: var(--font-head);
+      font-size: 2rem;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      color: var(--text-1);
+      margin-bottom: 12px;
+    }
+
+    .faq-help-box p {
+      position: relative;
+      z-index: 1;
+      color: var(--text-2);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .faq-wa-btn {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      min-height: 52px;
+      border-radius: 8px;
+      background: var(--wa);
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      box-shadow: 0 4px 24px var(--wa-glow);
+      transition: all 0.22s ease;
+    }
+
+    .faq-wa-btn:hover {
+      background: #16a34a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 36px var(--wa-glow);
+    }
+
+    @media (max-width: 1024px) {
+      .faq-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .faq-help-box {
+        position: relative;
+        top: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      #faq {
+        padding: 64px 18px;
+      }
+
+      .faq-question {
+        padding: 18px 16px;
+      }
+
+      .faq-question span {
+        font-size: 0.9rem;
+      }
+
+      .faq-question strong {
+        width: 30px;
+        height: 30px;
+        font-size: 1.15rem;
+      }
+
+      .faq-answer p {
+        padding: 0 16px;
+        font-size: 0.86rem;
+      }
+
+      .faq-card.active .faq-answer p {
+        padding-bottom: 18px;
+      }
+
+      .faq-help-box {
+        padding: 28px 20px;
+        border-radius: 22px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2348,6 +2605,7 @@
     <li><a href="#galeria">Projetos</a></li>
     <li><a href="#avaliacoes">Avaliações</a></li>
     <li><a href="#atendimento">Atendimento</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
 
   <div class="nav-right">
@@ -2368,6 +2626,7 @@
   <a href="#galeria" class="mobile-link">Projetos</a>
   <a href="#avaliacoes" class="mobile-link">Avaliações</a>
   <a href="#atendimento" class="mobile-link">Atendimento</a>
+  <a href="#faq" class="mobile-link">FAQ</a>
   <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20quero%20fazer%20um%20or%C3%A7amento" target="_blank" rel="noopener" class="nav-cta">
     <svg fill="currentColor" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
       <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
@@ -2833,6 +3092,87 @@
   </div>
 </div>
 
+
+<!-- ══ FAQ ══════════════════════════════ -->
+<section id="faq" class="full-width">
+  <div class="faq-inner">
+    <div class="s-header reveal">
+      <div class="s-tag t6">Perguntas Frequentes</div>
+      <h2 class="s-title">DÚVIDAS <span class="amber">FREQUENTES</span></h2>
+      <p class="s-sub">Separamos as principais perguntas que aparecem no atendimento para você entender melhor antes de solicitar seu orçamento.</p>
+    </div>
+
+    <div class="faq-layout reveal">
+      <div class="faq-left">
+        <div class="faq-card active">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span>Vocês trabalham com conserto de telhado?</span>
+            <strong>+</strong>
+          </button>
+          <div class="faq-answer">
+            <p>Sim. Fazemos reparos em telhados, incluindo troca de telhas, remendos e ajustes necessários para ajudar a evitar infiltrações e melhorar a proteção do imóvel.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Cobram para fazer orçamento?</span>
+            <strong>+</strong>
+          </button>
+          <div class="faq-answer">
+            <p>Não. O orçamento é gratuito e sem compromisso. Avaliamos o serviço necessário e passamos as informações com clareza antes de qualquer contratação.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Quanto tempo demora para entregar o serviço pronto?</span>
+            <strong>+</strong>
+          </button>
+          <div class="faq-answer">
+            <p>Normalmente pedimos um prazo de 3 a 7 dias úteis, dependendo do tipo de serviço, tamanho do projeto, disponibilidade de material e condições do tempo.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Vocês trabalham com calhas de PVC?</span>
+            <strong>+</strong>
+          </button>
+          <div class="faq-answer">
+            <p>Não. Trabalhamos somente com calhas em chapa, pois oferecem mais resistência, melhor acabamento e maior durabilidade para o imóvel.</p>
+          </div>
+        </div>
+
+        <div class="faq-card">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>Quanto está o metro da calha?</span>
+            <strong>+</strong>
+          </button>
+          <div class="faq-answer">
+            <p>O valor do metro pode variar bastante. Depende das medidas, tipo de chapa, local de instalação e detalhes do serviço. O correto é fazer um orçamento para tirar as medidas exatas e passar um valor certo.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-right">
+        <div class="faq-help-box">
+          <div class="faq-help-icon">
+            <svg class="icon-line" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+              <path d="M9 9h6"/>
+              <path d="M9 13h4"/>
+            </svg>
+          </div>
+          <h3>Ainda ficou com dúvida?</h3>
+          <p>Chame a A.S.F Calhas pelo WhatsApp e explique o que você precisa. Nossa equipe te orienta da melhor forma.</p>
+          <a href="https://api.whatsapp.com/send?phone=554197286325&text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20A.S.F%20Calhas%20e%20gostaria%20de%20tirar%20uma%20d%C3%BAvida" class="faq-wa-btn" target="_blank" rel="noopener">Falar pelo WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ CTA ═══════════════════════════════ -->
 <section id="orcamento" style="background:var(--bg); max-width:none; padding:100px 5%;">
   <div class="cta-wrap">
@@ -2920,6 +3260,7 @@
         <li><a href="#materiais">Materiais</a></li>
         <li><a href="#galeria">Projetos</a></li>
         <li><a href="#avaliacoes">Avaliações</a></li>
+        <li><a href="#faq">FAQ</a></li>
         <li><a href="#orcamento">Orçamento</a></li>
       </ul>
     </div>
@@ -3218,6 +3559,31 @@ ${mensagem}`;
   });
 
   updateGalleryCounter();
+
+
+  // FAQ abre e fecha
+  const faqCards = document.querySelectorAll('.faq-card');
+
+  faqCards.forEach((card) => {
+    const btn = card.querySelector('.faq-question');
+
+    if (!btn) return;
+
+    btn.addEventListener('click', () => {
+      const isActive = card.classList.contains('active');
+
+      faqCards.forEach((item) => {
+        item.classList.remove('active');
+        const itemBtn = item.querySelector('.faq-question');
+        if (itemBtn) itemBtn.setAttribute('aria-expanded', 'false');
+      });
+
+      if (!isActive) {
+        card.classList.add('active');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
 
 </script>
 </body>
