@@ -2049,6 +2049,289 @@
       .diff-hl-icon .icon-line { width: 22px; height: 22px; }
     }
 
+
+    /* ─── GALERIA / CARROSSEL COM 21 FOTOS ─────────────────── */
+    .gallery-head-row {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .gallery-more-btn {
+      flex-shrink: 0;
+      border: 1px solid rgba(245,158,11,0.34);
+      background: rgba(245,158,11,0.10);
+      color: var(--amber-light);
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+
+    .gallery-more-btn:hover {
+      transform: translateY(-2px);
+      background: rgba(245,158,11,0.18);
+      border-color: rgba(245,158,11,0.58);
+      box-shadow: 0 14px 34px rgba(245,158,11,0.10);
+    }
+
+    .gallery-carousel {
+      position: relative;
+      display: grid;
+      grid-template-columns: 48px 1fr 48px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .gallery-viewport {
+      overflow: hidden;
+      border-radius: var(--radius-lg);
+    }
+
+    .gallery-track {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      padding: 2px;
+    }
+
+    .gallery-track::-webkit-scrollbar { display: none; }
+
+    .gal-item,
+    .gal-item.big {
+      flex: 0 0 calc((100% - 28px) / 3);
+      height: 330px;
+      min-height: 330px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background: linear-gradient(135deg, #111720, #0d1219);
+      cursor: pointer;
+      padding: 0;
+      display: block;
+      scroll-snap-align: start;
+      grid-column: auto !important;
+      grid-row: auto !important;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+    }
+
+    .gal-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 50% 45%, rgba(245,158,11,0.08), transparent 58%);
+      z-index: 0;
+    }
+
+    .gal-item::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 55%, rgba(8,12,16,0.40));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .gal-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(245,158,11,0.34);
+      box-shadow: 0 20px 44px rgba(0,0,0,0.22);
+    }
+
+    .gal-item:hover::after { opacity: 1; }
+
+    .gal-item img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+
+    .gal-item:hover img { transform: scale(1.045); }
+
+    .gal-item img[src=""],
+    .gal-item img:not([src]) {
+      opacity: 0;
+    }
+
+    .gallery-track .gallery-extra {
+      display: block;
+    }
+
+    .gallery-arrow {
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--border-2);
+      border-radius: 50%;
+      background: rgba(15,21,32,0.92);
+      color: var(--text-1);
+      font-size: 2rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 4;
+    }
+
+    .gallery-arrow:hover {
+      background: var(--amber);
+      color: #000;
+      border-color: var(--amber);
+      transform: scale(1.05);
+      box-shadow: 0 12px 32px var(--amber-glow);
+    }
+
+    .gallery-counter {
+      margin-top: 18px;
+      text-align: center;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+    }
+
+    .gallery-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 12000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 74px 84px;
+      background: rgba(3,7,12,0.92);
+      backdrop-filter: blur(18px);
+    }
+
+    .gallery-lightbox.open { display: flex; }
+
+    .gallery-lightbox img {
+      max-width: min(1100px, 100%);
+      max-height: 82vh;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-2);
+      object-fit: contain;
+      background: var(--bg-3);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.48);
+    }
+
+    .gallery-lightbox-close,
+    .gallery-lightbox-arrow {
+      position: fixed;
+      border: 1px solid var(--border-2);
+      background: rgba(15,21,32,0.92);
+      color: var(--text-1);
+      cursor: pointer;
+      transition: all 0.22s ease;
+    }
+
+    .gallery-lightbox-close {
+      top: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .gallery-lightbox-arrow {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      font-size: 2.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .gallery-lightbox-prev { left: 24px; }
+    .gallery-lightbox-next { right: 24px; }
+
+    .gallery-lightbox-close:hover,
+    .gallery-lightbox-arrow:hover {
+      background: var(--amber);
+      border-color: var(--amber);
+      color: #000;
+    }
+
+    @media (max-width: 1024px) {
+      .gal-item,
+      .gal-item.big {
+        flex-basis: calc((100% - 14px) / 2);
+        height: 290px;
+        min-height: 290px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .gallery-head-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .gallery-more-btn {
+        width: 100%;
+      }
+
+      .gallery-carousel {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .gallery-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 42px;
+        height: 42px;
+        background: rgba(8,12,16,0.84);
+      }
+
+      .gallery-arrow-prev { left: 10px; }
+      .gallery-arrow-next { right: 10px; }
+
+      .gal-item,
+      .gal-item.big {
+        flex-basis: 100%;
+        height: 240px !important;
+        min-height: 240px !important;
+      }
+
+      .gallery-lightbox {
+        padding: 74px 14px;
+      }
+
+      .gallery-lightbox-arrow {
+        width: 44px;
+        height: 44px;
+        font-size: 2rem;
+      }
+
+      .gallery-lightbox-prev { left: 12px; }
+      .gallery-lightbox-next { right: 12px; }
+      .gallery-lightbox-close { top: 16px; right: 16px; }
+    }
+
   </style>
 </head>
 <body>
@@ -2338,50 +2621,117 @@
 
 <!-- ══ GALLERY ═══════════════════════════ -->
 <section id="galeria" style="background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border);">
-  <div class="s-header reveal">
-    <div class="s-tag t4">Nossos Projetos</div>
-    <h2 class="s-title">TRABALHOS <span class="amber">REALIZADOS</span></h2>
-    <p class="s-sub">Cada projeto entregue com qualidade, capricho e atenção aos detalhes. Veja o que fazemos na prática.</p>
+  <div class="s-header reveal gallery-head-row">
+    <div>
+      <div class="s-tag t4">Nossos Projetos</div>
+      <h2 class="s-title">TRABALHOS <span class="amber">REALIZADOS</span></h2>
+      <p class="s-sub">Confira alguns serviços entregues pela A.S.F Calhas.</p>
+    </div>
   </div>
 
-  <div class="gallery-layout reveal">
-    <div class="gal-item big">
-      <div class="gal-placeholder">
-        <span class="gal-emoji">📸</span>
-        <span>Instalação residencial completa – São José dos Pinhais</span>
-      </div>
-      <div class="gal-overlay"><div class="gal-overlay-text">Calha de alumínio – Residência</div></div>
-    </div>
-    <div class="gal-item">
-      <div class="gal-placeholder">
-        <span class="gal-emoji">📸</span>
-        <span>Manutenção e reparo</span>
-      </div>
-      <div class="gal-overlay"><div class="gal-overlay-text">Reparo – Comercial</div></div>
-    </div>
-    <div class="gal-item">
-      <div class="gal-placeholder">
-        <span class="gal-emoji">📸</span>
-        <span>Instalação industrial</span>
-      </div>
-      <div class="gal-overlay"><div class="gal-overlay-text">Galpão industrial – Pinhais</div></div>
-    </div>
-    <div class="gal-item">
-      <div class="gal-placeholder">
-        <span class="gal-emoji">📸</span>
-        <span>Calha galvanizada – Casa nova</span>
-      </div>
-      <div class="gal-overlay"><div class="gal-overlay-text">Calha galvanizada – Residência</div></div>
-    </div>
-    <div class="gal-item">
-      <div class="gal-placeholder">
-        <span class="gal-emoji">📸</span>
-        <span>Limpeza preventiva</span>
-      </div>
-      <div class="gal-overlay"><div class="gal-overlay-text">Limpeza e manutenção</div></div>
-    </div>
+  <div class="gallery-carousel reveal" aria-label="Carrossel de projetos realizados">
+    <button type="button" class="gallery-arrow gallery-arrow-prev" id="galleryPrev" aria-label="Foto anterior">‹</button>
+
+    <div class="gallery-viewport" id="galleryViewport">
+  <div class="gallery-track" id="galleryTrack">
+    <button class="gal-item active" type="button" data-index="0" aria-label="Abrir foto 1">
+      <img src="img/calhas1.jpeg" alt="Projeto A.S.F Calhas 01" loading="lazy">
+    </button>
+
+    <button class="gal-item" type="button" data-index="1" aria-label="Abrir foto 2">
+      <img src="img/calhas2.jpeg" alt="Projeto A.S.F Calhas 02" loading="lazy">
+    </button>
+
+    <button class="gal-item" type="button" data-index="2" aria-label="Abrir foto 3">
+      <img src="img/calhas3.jpeg" alt="Projeto A.S.F Calhas 03" loading="lazy">
+    </button>
+
+    <button class="gal-item" type="button" data-index="3" aria-label="Abrir foto 4">
+      <img src="img/calhas4.jpeg" alt="Projeto A.S.F Calhas 04" loading="lazy">
+    </button>
+
+    <button class="gal-item" type="button" data-index="4" aria-label="Abrir foto 5">
+      <img src="img/calhas5.jpeg" alt="Projeto A.S.F Calhas 05" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="5" aria-label="Abrir foto 6">
+      <img src="img/calhas6.jpeg" alt="Projeto A.S.F Calhas 06" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="6" aria-label="Abrir foto 7">
+      <img src="img/calhas7.jpeg" alt="Projeto A.S.F Calhas 07" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="7" aria-label="Abrir foto 8">
+      <img src="img/calhas8.jpeg" alt="Projeto A.S.F Calhas 08" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="8" aria-label="Abrir foto 9">
+      <img src="img/calhas9.jpeg" alt="Projeto A.S.F Calhas 09" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="9" aria-label="Abrir foto 10">
+      <img src="img/calhas10.jpeg" alt="Projeto A.S.F Calhas 10" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="10" aria-label="Abrir foto 11">
+      <img src="img/calhas11.jpeg" alt="Projeto A.S.F Calhas 11" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="11" aria-label="Abrir foto 12">
+      <img src="img/calhas12.jpeg" alt="Projeto A.S.F Calhas 12" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="12" aria-label="Abrir foto 13">
+      <img src="img/calhas13.jpeg" alt="Projeto A.S.F Calhas 13" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="13" aria-label="Abrir foto 14">
+      <img src="img/calhas14.jpeg" alt="Projeto A.S.F Calhas 14" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="14" aria-label="Abrir foto 15">
+      <img src="img/calhas15.jpeg" alt="Projeto A.S.F Calhas 15" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="15" aria-label="Abrir foto 16">
+      <img src="img/calhas16.jpeg" alt="Projeto A.S.F Calhas 16" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="16" aria-label="Abrir foto 17">
+      <img src="img/calhas17.jpeg" alt="Projeto A.S.F Calhas 17" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="17" aria-label="Abrir foto 18">
+      <img src="img/calhas18.jpeg" alt="Projeto A.S.F Calhas 18" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="18" aria-label="Abrir foto 19">
+      <img src="img/calhas19.jpeg" alt="Projeto A.S.F Calhas 19" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="19" aria-label="Abrir foto 20">
+      <img src="img/calhas20.jpeg" alt="Projeto A.S.F Calhas 20" loading="lazy">
+    </button>
+
+    <button class="gal-item gallery-extra" type="button" data-index="20" aria-label="Abrir foto 21">
+      <img src="img/calhas21.jpeg" alt="Projeto A.S.F Calhas 21" loading="lazy">
+    </button>
   </div>
+</div>
+
+    <button type="button" class="gallery-arrow gallery-arrow-next" id="galleryNext" aria-label="Próxima foto">›</button>
+  </div>
+
+  <div class="gallery-counter reveal" id="galleryCounter">1 / 21</div>
 </section>
+
+<div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true">
+  <button type="button" class="gallery-lightbox-close" id="galleryClose" aria-label="Fechar imagem">×</button>
+  <button type="button" class="gallery-lightbox-arrow gallery-lightbox-prev" id="lightboxPrev" aria-label="Imagem anterior">‹</button>
+  <img src="" alt="Projeto ampliado A.S.F Calhas" id="galleryLightboxImg">
+  <button type="button" class="gallery-lightbox-arrow gallery-lightbox-next" id="lightboxNext" aria-label="Próxima imagem">›</button>
+</div>
 
 <!-- ══ REVIEWS ═══════════════════════════ -->
 <section id="avaliacoes" style="background:var(--bg);">
@@ -2526,7 +2876,7 @@
 <footer>
   <div class="footer-top">
     <div>
-      <img src="img/calhas.logo2.png" alt="Logo A.S.F Calhas" class="nav-logo-img">
+     <img src="img/calhas.logo2.png" alt="Logo A.S.F Calhas" class="nav-logo-img">
       <p class="footer-tagline">Especialistas em calhas na região de São José dos Pinhais e Curitiba – PR. Qualidade, pontualidade e garantia em cada projeto.</p>
     </div>
 
@@ -2739,6 +3089,103 @@ ${mensagem}`;
   } else {
     counters.forEach(counter => animateCounter(counter));
   }
+
+
+  // ── Galeria: carrossel com 21 fotos + lightbox ───────────────
+  const galleryTrack = document.getElementById('galleryTrack');
+  const galleryViewport = document.getElementById('galleryViewport');
+  const galleryItems = Array.from(document.querySelectorAll('.gallery-track .gal-item'));
+  const galleryPrev = document.getElementById('galleryPrev');
+  const galleryNext = document.getElementById('galleryNext');
+  const galleryMoreBtn = document.getElementById('galleryMoreBtn');
+  const galleryCounter = document.getElementById('galleryCounter');
+  const galleryLightbox = document.getElementById('galleryLightbox');
+  const galleryLightboxImg = document.getElementById('galleryLightboxImg');
+  const galleryClose = document.getElementById('galleryClose');
+  const lightboxPrev = document.getElementById('lightboxPrev');
+  const lightboxNext = document.getElementById('lightboxNext');
+  let galleryIndex = 0;
+  const galleryTotal = galleryItems.length;
+
+  function updateGalleryCounter() {
+    if (galleryCounter) {
+      galleryCounter.textContent = `${galleryIndex + 1} / ${galleryTotal}`;
+    }
+  }
+
+  function scrollToGalleryItem(index) {
+    if (!galleryTrack || !galleryItems.length) return;
+
+    galleryIndex = (index + galleryTotal) % galleryTotal;
+    galleryItems.forEach(item => item.classList.remove('active'));
+    galleryItems[galleryIndex].classList.add('active');
+    galleryItems[galleryIndex].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+    updateGalleryCounter();
+  }
+
+  function openGalleryLightbox(index) {
+    if (!galleryLightbox || !galleryLightboxImg || !galleryItems.length) return;
+
+    galleryIndex = (index + galleryTotal) % galleryTotal;
+    const img = galleryItems[galleryIndex].querySelector('img');
+
+    if (img) {
+      galleryLightboxImg.src = img.currentSrc || img.src;
+      galleryLightboxImg.alt = img.alt || 'Projeto ampliado A.S.F Calhas';
+    }
+
+    galleryLightbox.classList.add('open');
+    galleryLightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    updateGalleryCounter();
+  }
+
+  function closeGalleryLightbox() {
+    if (!galleryLightbox) return;
+
+    galleryLightbox.classList.remove('open');
+    galleryLightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function changeLightboxImage(step) {
+    openGalleryLightbox(galleryIndex + step);
+  }
+
+  if (galleryPrev) galleryPrev.addEventListener('click', () => scrollToGalleryItem(galleryIndex - 1));
+  if (galleryNext) galleryNext.addEventListener('click', () => scrollToGalleryItem(galleryIndex + 1));
+
+  galleryItems.forEach((item, index) => {
+    const image = item.querySelector('img');
+
+    item.addEventListener('click', () => openGalleryLightbox(index));
+
+    if (image) {
+      image.addEventListener('error', () => {
+        image.style.opacity = '0';
+      });
+    }
+  });
+
+  if (galleryClose) galleryClose.addEventListener('click', closeGalleryLightbox);
+  if (lightboxPrev) lightboxPrev.addEventListener('click', () => changeLightboxImage(-1));
+  if (lightboxNext) lightboxNext.addEventListener('click', () => changeLightboxImage(1));
+
+  if (galleryLightbox) {
+    galleryLightbox.addEventListener('click', (event) => {
+      if (event.target === galleryLightbox) closeGalleryLightbox();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (!galleryLightbox || !galleryLightbox.classList.contains('open')) return;
+
+    if (event.key === 'Escape') closeGalleryLightbox();
+    if (event.key === 'ArrowLeft') changeLightboxImage(-1);
+    if (event.key === 'ArrowRight') changeLightboxImage(1);
+  });
+
+  updateGalleryCounter();
 
 </script>
 </body>
