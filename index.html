@@ -2708,12 +2708,12 @@
       <div class="asf-gallery-grid">
         <button class="gal-item" type="button"><img src="img/calhas1.jpeg" alt="Calha instalada pela A.S.F Calhas" loading="lazy"></button>
         <button class="gal-item" type="button"><img src="img/calhas2.jpeg" alt="Serviço de calha residencial" loading="lazy"></button>
-        <button class="gal-item" type="button"><img src="img/calhas3.jpeg" alt="Acabamento de calha" loading="lazy"></button>
+        <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas3.jpeg" alt="Acabamento de calha" loading="lazy"></button>
         <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas4.jpeg" alt="Projeto de calha sob medida" loading="lazy"></button>
         <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas5.jpeg" alt="Instalação de calha em obra" loading="lazy"></button>
         <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas6.jpeg" alt="Calha finalizada" loading="lazy"></button>
       </div>
-      <button class="gallery-more-btn asf-category-more" type="button">Ver mais</button>
+      <button class="gallery-more-btn asf-category-more" type="button" aria-expanded="false">Ver mais</button>
     </div>
 
     <div class="asf-gallery-category">
@@ -2727,10 +2727,10 @@
       <div class="asf-gallery-grid">
         <button class="gal-item" type="button"><img src="img/calhas7.jpeg" alt="Rufo instalado pela A.S.F Calhas" loading="lazy"></button>
         <button class="gal-item" type="button"><img src="img/calhas8.jpeg" alt="Serviço de rufo em telhado" loading="lazy"></button>
-        <button class="gal-item" type="button"><img src="img/calhas9.jpeg" alt="Acabamento de rufo" loading="lazy"></button>
+        <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas9.jpeg" alt="Acabamento de rufo" loading="lazy"></button>
         <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas10.jpeg" alt="Rufo sob medida" loading="lazy"></button>
       </div>
-      <button class="gallery-more-btn asf-category-more" type="button">Ver mais</button>
+      <button class="gallery-more-btn asf-category-more" type="button" aria-expanded="false">Ver mais</button>
     </div>
 
     <div class="asf-gallery-category">
@@ -2744,8 +2744,9 @@
       <div class="asf-gallery-grid">
         <button class="gal-item" type="button"><img src="img/calhas11.jpeg" alt="Condutor instalado" loading="lazy"></button>
         <button class="gal-item" type="button"><img src="img/calhas12.jpeg" alt="Condutor para água pluvial" loading="lazy"></button>
-        <button class="gal-item" type="button"><img src="img/calhas13.jpeg" alt="Acabamento de condutor" loading="lazy"></button>
+        <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas13.jpeg" alt="Acabamento de condutor" loading="lazy"></button>
       </div>
+      <button class="gallery-more-btn asf-category-more" type="button" aria-expanded="false">Ver mais</button>
     </div>
 
     <div class="asf-gallery-category">
@@ -2759,8 +2760,9 @@
       <div class="asf-gallery-grid">
         <button class="gal-item" type="button"><img src="img/calhas14.jpeg" alt="Pingadeira instalada" loading="lazy"></button>
         <button class="gal-item" type="button"><img src="img/calhas15.jpeg" alt="Acabamento com pingadeira" loading="lazy"></button>
-        <button class="gal-item" type="button"><img src="img/calhas16.jpeg" alt="Pingadeira sob medida" loading="lazy"></button>
+        <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas16.jpeg" alt="Pingadeira sob medida" loading="lazy"></button>
       </div>
+      <button class="gallery-more-btn asf-category-more" type="button" aria-expanded="false">Ver mais</button>
     </div>
 
     <div class="asf-gallery-category">
@@ -2774,8 +2776,9 @@
       <div class="asf-gallery-grid">
         <button class="gal-item" type="button"><img src="img/calhas17.jpeg" alt="Chaminé metálica" loading="lazy"></button>
         <button class="gal-item" type="button"><img src="img/calhas18.jpeg" alt="Coifa metálica" loading="lazy"></button>
-        <button class="gal-item" type="button"><img src="img/calhas19.jpeg" alt="Acabamento metálico" loading="lazy"></button>
+        <button class="gal-item asf-hidden-photo" type="button"><img src="img/calhas19.jpeg" alt="Acabamento metálico" loading="lazy"></button>
       </div>
+      <button class="gallery-more-btn asf-category-more" type="button" aria-expanded="false">Ver mais</button>
     </div>
 
     <div class="asf-gallery-category">
@@ -3251,6 +3254,11 @@ ${mensagem}`;
 
       const isOpen = category.classList.toggle('open');
       button.textContent = isOpen ? 'Ver menos' : 'Ver mais';
+      button.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+
+      if (!isOpen) {
+        category.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 
