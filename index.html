@@ -2534,7 +2534,180 @@
     }
 
 
-    /* ─── FAQ ─────────────────────────── */
+    
+
+    /* ─── CORREÇÃO FINAL: GALERIA SEPARADA + FOTOS DE LADO + BOTÃO FUNCIONANDO ─────────────────── */
+    #galeria {
+      background: var(--bg-2) !important;
+      border-top: 1px solid var(--border) !important;
+      border-bottom: 1px solid var(--border) !important;
+    }
+
+    #galeria .gallery-head-row {
+      justify-content: center !important;
+      text-align: center !important;
+      margin-bottom: 42px !important;
+    }
+
+    #galeria .gallery-head-row .s-sub {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .asf-gallery-tabs {
+      display: none !important;
+    }
+
+    .asf-gallery-grid {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+      max-width: 1320px !important;
+      margin: 0 auto !important;
+    }
+
+    .asf-gallery-card {
+      width: 100% !important;
+      min-height: 360px !important;
+      display: grid !important;
+      grid-template-columns: 280px minmax(0, 1fr) !important;
+      align-items: center !important;
+      gap: 28px !important;
+      padding: 28px !important;
+      border-radius: 24px !important;
+      background: linear-gradient(135deg, rgba(15,21,32,0.90), rgba(8,12,16,0.78)) !important;
+      border: 1px solid rgba(255,255,255,0.10) !important;
+      box-shadow: 0 22px 54px rgba(0,0,0,0.20) !important;
+    }
+
+    .asf-gallery-card.hidden-by-default,
+    .asf-gallery-card.filtered-hidden {
+      display: none !important;
+    }
+
+    .asf-gallery-grid.show-all .asf-gallery-card {
+      display: grid !important;
+      animation: asfCardIn 0.32s ease both;
+    }
+
+    .asf-gallery-card-head {
+      margin: 0 !important;
+      min-width: 0 !important;
+      display: flex !important;
+      align-items: flex-start !important;
+      gap: 16px !important;
+    }
+
+    .asf-gallery-card-head > div:last-child {
+      min-width: 0;
+    }
+
+    .asf-gallery-icon {
+      width: 58px !important;
+      height: 58px !important;
+      border-radius: 16px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .asf-gallery-card h3 {
+      font-size: 2.05rem !important;
+      margin-bottom: 10px !important;
+    }
+
+    .asf-gallery-card p {
+      max-width: 240px !important;
+      font-size: 0.92rem !important;
+      line-height: 1.65 !important;
+    }
+
+    .asf-gallery-badge {
+      margin-top: 16px !important;
+      min-height: 30px !important;
+      padding: 0 13px !important;
+      font-size: 0.68rem !important;
+    }
+
+    .asf-card-photos {
+      display: grid !important;
+      grid-template-columns: repeat(6, minmax(128px, 1fr)) !important;
+      gap: 12px !important;
+      align-items: stretch !important;
+      width: 100% !important;
+      min-width: 0 !important;
+    }
+
+    .asf-card-photos .gal-item {
+      width: 100% !important;
+      height: 250px !important;
+      min-height: 250px !important;
+      border-radius: 12px !important;
+      flex: initial !important;
+    }
+
+    .asf-gallery-card[data-category="rufos"] .asf-card-photos { grid-template-columns: repeat(4, minmax(150px, 1fr)) !important; }
+    .asf-gallery-card[data-category="condutores"] .asf-card-photos,
+    .asf-gallery-card[data-category="pingadeiras"] .asf-card-photos,
+    .asf-gallery-card[data-category="chamines"] .asf-card-photos { grid-template-columns: repeat(3, minmax(170px, 1fr)) !important; }
+    .asf-gallery-card[data-category="acabamentos"] .asf-card-photos { grid-template-columns: repeat(2, minmax(220px, 1fr)) !important; }
+
+    .asf-gallery-actions {
+      display: flex !important;
+      justify-content: center !important;
+      margin-top: 28px !important;
+    }
+
+    #asfGalleryMoreBtn {
+      min-width: 260px !important;
+      min-height: 50px !important;
+    }
+
+    @media (max-width: 1180px) {
+      .asf-gallery-card {
+        grid-template-columns: 240px minmax(0, 1fr) !important;
+        gap: 22px !important;
+      }
+      .asf-card-photos,
+      .asf-gallery-card[data-category="rufos"] .asf-card-photos,
+      .asf-gallery-card[data-category="condutores"] .asf-card-photos,
+      .asf-gallery-card[data-category="pingadeiras"] .asf-card-photos,
+      .asf-gallery-card[data-category="chamines"] .asf-card-photos,
+      .asf-gallery-card[data-category="acabamentos"] .asf-card-photos {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
+      .asf-card-photos .gal-item { height: 210px !important; min-height: 210px !important; }
+    }
+
+    @media (max-width: 760px) {
+      .asf-gallery-card {
+        grid-template-columns: 1fr !important;
+        min-height: 0 !important;
+        padding: 20px !important;
+      }
+      .asf-gallery-card p { max-width: 100% !important; }
+      .asf-card-photos,
+      .asf-gallery-card[data-category="rufos"] .asf-card-photos,
+      .asf-gallery-card[data-category="condutores"] .asf-card-photos,
+      .asf-gallery-card[data-category="pingadeiras"] .asf-card-photos,
+      .asf-gallery-card[data-category="chamines"] .asf-card-photos,
+      .asf-gallery-card[data-category="acabamentos"] .asf-card-photos {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+      .asf-card-photos .gal-item { height: 190px !important; min-height: 190px !important; }
+      #asfGalleryMoreBtn { width: 100% !important; }
+    }
+
+    @media (max-width: 480px) {
+      .asf-card-photos,
+      .asf-gallery-card[data-category="rufos"] .asf-card-photos,
+      .asf-gallery-card[data-category="condutores"] .asf-card-photos,
+      .asf-gallery-card[data-category="pingadeiras"] .asf-card-photos,
+      .asf-gallery-card[data-category="chamines"] .asf-card-photos,
+      .asf-gallery-card[data-category="acabamentos"] .asf-card-photos {
+        grid-template-columns: 1fr !important;
+      }
+      .asf-card-photos .gal-item { height: 230px !important; min-height: 230px !important; }
+    }
+/* ─── FAQ ─────────────────────────── */
     #faq {
       background: var(--bg-2);
       border-top: 1px solid var(--border);
@@ -3684,64 +3857,54 @@ ${mensagem}`;
 
 
 
-  // ── Galeria por categorias: começa em Calhas, abre mais igual cards ───────────────
+  // ── Galeria corrigida: só Calhas primeiro, abrir mais mostra categorias separadas ───────────────
   const asfGalleryGrid = document.getElementById('asfGalleryGrid');
   const asfGalleryMoreBtn = document.getElementById('asfGalleryMoreBtn');
-  const galleryTabs = Array.from(document.querySelectorAll('.asf-gallery-tab'));
   const galleryCards = Array.from(document.querySelectorAll('.asf-gallery-card'));
   const galleryLightbox = document.getElementById('galleryLightbox');
   const galleryLightboxImg = document.getElementById('galleryLightboxImg');
   const galleryClose = document.getElementById('galleryClose');
 
-  function setActiveGalleryTab(filter) {
-    galleryTabs.forEach(tab => {
-      tab.classList.toggle('active', tab.dataset.filter === filter);
-    });
-  }
-
-  function filterGalleryCards(filter) {
+  function showOnlyCalhas() {
     if (!asfGalleryGrid) return;
-
-    if (filter === 'todos') {
-      asfGalleryGrid.classList.add('show-all');
-      galleryCards.forEach(card => card.classList.remove('filtered-hidden'));
-      if (asfGalleryMoreBtn) asfGalleryMoreBtn.textContent = 'Ver menos';
-      setActiveGalleryTab('todos');
-      return;
-    }
-
     asfGalleryGrid.classList.remove('show-all');
+
     galleryCards.forEach(card => {
-      const shouldShow = card.dataset.category === filter;
-      card.classList.toggle('hidden-by-default', !shouldShow);
-      card.classList.toggle('filtered-hidden', !shouldShow);
+      const isCalhas = card.dataset.category === 'calhas';
+      card.classList.toggle('hidden-by-default', !isCalhas);
+      card.classList.remove('filtered-hidden');
     });
 
-    if (asfGalleryMoreBtn) asfGalleryMoreBtn.textContent = 'Abrir mais trabalhos';
-    setActiveGalleryTab(filter);
+    if (asfGalleryMoreBtn) {
+      asfGalleryMoreBtn.textContent = 'Abrir mais trabalhos';
+      asfGalleryMoreBtn.setAttribute('aria-expanded', 'false');
+    }
   }
 
-  galleryTabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      filterGalleryCards(tab.dataset.filter || 'calhas');
+  function showAllCategories() {
+    if (!asfGalleryGrid) return;
+    asfGalleryGrid.classList.add('show-all');
+
+    galleryCards.forEach(card => {
+      card.classList.remove('hidden-by-default');
+      card.classList.remove('filtered-hidden');
     });
-  });
 
-  if (asfGalleryMoreBtn && asfGalleryGrid) {
+    if (asfGalleryMoreBtn) {
+      asfGalleryMoreBtn.textContent = 'Ver menos';
+      asfGalleryMoreBtn.setAttribute('aria-expanded', 'true');
+    }
+  }
+
+  if (asfGalleryMoreBtn) {
     asfGalleryMoreBtn.addEventListener('click', () => {
-      const isShowingAll = asfGalleryGrid.classList.contains('show-all');
+      const isOpen = asfGalleryGrid && asfGalleryGrid.classList.contains('show-all');
 
-      if (isShowingAll) {
-        filterGalleryCards('calhas');
+      if (isOpen) {
+        showOnlyCalhas();
         document.getElementById('galeria')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
-        asfGalleryGrid.classList.add('show-all');
-        galleryCards.forEach(card => {
-          card.classList.remove('hidden-by-default');
-          card.classList.remove('filtered-hidden');
-        });
-        asfGalleryMoreBtn.textContent = 'Ver menos';
-        setActiveGalleryTab('todos');
+        showAllCategories();
       }
     });
   }
@@ -3757,18 +3920,13 @@ ${mensagem}`;
       galleryLightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     });
-
-    if (image) {
-      image.addEventListener('error', () => {
-        image.style.opacity = '0';
-      });
-    }
   });
 
   function closeGalleryLightbox() {
     if (!galleryLightbox) return;
     galleryLightbox.classList.remove('open');
     galleryLightbox.setAttribute('aria-hidden', 'true');
+    galleryLightboxImg.removeAttribute('src');
     document.body.style.overflow = '';
   }
 
@@ -3784,7 +3942,7 @@ ${mensagem}`;
     if (event.key === 'Escape') closeGalleryLightbox();
   });
 
-  filterGalleryCards('calhas');
+  showOnlyCalhas();
 
   // FAQ abre e fecha
   const faqCards = document.querySelectorAll('.faq-card');
